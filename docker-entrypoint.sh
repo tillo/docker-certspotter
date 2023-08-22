@@ -2,7 +2,7 @@
 
 PATH=$PATH:/certspotter/bin
 CS_DELAY=${CS_DELAY:-86400}
-CMD="/certspotter/bin/certspotter"
+CMD="/certspotter/bin/certspotter -stdout"
 
 RESULT=""
 

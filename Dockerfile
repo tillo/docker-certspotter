@@ -1,22 +1,22 @@
-ARG GO_VERSION=1.17
+#ARG GO_VERSION=1.17
 
 # Go builder
 
-FROM golang:${GO_VERSION} AS builder
+FROM golang:latest AS builder
 
 RUN go install software.sslmate.com/src/certspotter/cmd/certspotter@latest
 
 # Final image
 
-FROM debian:bullseye
+FROM debian:latest
 
-ENV TINI_VERSION v0.18.0
+#ENV TINI_VERSION v0.18.0
 
 RUN apt-get update && \
   apt-get install -y curl && \
   rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+ADD https://github.com/krallin/tini/releases/latest/download/tini /tini
 
 RUN mkdir /certspotter/ && \
   cd /certspotter && \
