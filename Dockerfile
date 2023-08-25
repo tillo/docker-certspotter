@@ -31,6 +31,7 @@ ADD base-hooks.d/* /certspotter/base-hooks.d/
 ADD utils.bash /certspotter/
 ADD notify.sh /certspotter/bin/notify.sh
 RUN chmod +x /tini /certspotter/bin/docker-entrypoint.sh /certspotter/bin/notify.sh /certspotter/bin/certspotter /certspotter/base-hooks.d/*
+RUN ln -sf /certspotter/base-hooks.d /certspotter/.certspotter/hooks.d
 
 USER nobody:nogroup
 

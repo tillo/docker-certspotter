@@ -31,16 +31,12 @@ echo "${CS_DOMAINS}" | tr ' ;,' '\n' > /certspotter/.certspotter/watchlist
 
 function check_certs() {
   info "Checking certs"
-  RESULT=$(${CMD} | grep 'DNS Name =' | cut -f 2 -d'=' | sort | uniq | tr '\n' ' ')
+  ${CMD}
   info "Done checking certs"
 }
 
 while true; do
   check_certs
-  if [ -n "${RESULT}" ]; then
-    warning "New certificates found for domains ${RESULT}"
-    notify.sh "New certificates found for domains ${RESULT}"
-  fi
   sleep "${CS_DELAY}"
 done
 
