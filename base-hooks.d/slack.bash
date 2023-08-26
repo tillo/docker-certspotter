@@ -7,6 +7,12 @@ if [ -n "${1}" ]; then
 	SUMMARY=$1
 fi
 
+if [ -n "${TEXT_FILENAME}" ]; then
+	TEXT=$(<${TEXT_FILENAME})
+	SUMMARY="${SUMMARY}
+${TEXT}"
+fi
+
 if [ -n "${SUMMARY}" ] && [ -n "${CS_SLACK_URL}" ]; then
   curl -X POST --silent --data-urlencode "payload={\"text\": \"$SUMMARY\"}" "$CS_SLACK_URL";
 fi
