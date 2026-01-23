@@ -3,7 +3,7 @@ stages:
 
 buildkit:
   image:
-    name: moby/buildkit:rootless
+    name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/moby/buildkit:rootless
     entrypoint: [""]
   stage: build
   variables:
