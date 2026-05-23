@@ -70,3 +70,11 @@ docker build . -t some/tag
 docker. Debugging required...
 
 ## Licence
+
+MIT — see [LICENSE](LICENSE). [SSLMate/certspotter](https://github.com/SSLMate/certspotter) itself is Apache-2.0.
+
+## Provenance
+
+This is an MDAPI variant of the [`devopsworks/certspotter`](https://github.com/devops-works/docker-certspotter)
+image. Use either the upstream `devopsworks/certspotter` or this variant; the
+container behaviour is the same.

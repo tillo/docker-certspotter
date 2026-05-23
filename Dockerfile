@@ -2,13 +2,14 @@
 
 # Go builder
 
-FROM gitlab.mdapi.ch/mdapi/dependency_proxy/containers/golang:latest AS builder
+ARG REGISTRY=
+FROM ${REGISTRY}golang:latest AS builder
 
 RUN go install software.sslmate.com/src/certspotter/cmd/certspotter@latest
 
 # Final image
 
-FROM gitlab.mdapi.ch/mdapi/dependency_proxy/containers/debian:latest
+FROM ${REGISTRY}debian:latest
 
 #ENV TINI_VERSION v0.18.0
 
